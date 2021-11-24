@@ -3,13 +3,16 @@ const mongoose = require( 'mongoose' );
 mongoose.connect('mongodb://localhost/animals_db', {useNewUrlParser: true});
 const app = express();
 
-const {AnimalModel} = require( './models/AnimalsModel' );
+const {AnimalModel} = require( './server/models/AnimalsModel' );
 
 app.set( 'views', __dirname + '/views' );
 app.set( 'view engine', 'ejs' );
 app.use( express.urlencoded({extended:true}) );
 
-app.use('/animal', UserRouter);
+const { AnimalRouter } = require("./server/routes/animalRoute");
+
+app.use('/animal', AnimalRouter);
+
 /*
 app.get( '/', function( request, response ){
     AnimalModel
