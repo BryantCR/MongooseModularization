@@ -26,13 +26,13 @@
                 Information: "<%= animal.animalInformation %>"
             </p>
             <div style="display: flex; flex-direction: row; justify-content: space-around;">
-                <a href="/" >
+                <a href="/animal/zoo" >
                     Go Home >
                 </a>
-                <a href="/animals/edit/<%= animal.animalId %>" >
+                <a href="/animal/animals/edit/<%= animal.animalId %>" >
                     Edit Information >
                 </a>
-                <form method="POST" action="/destroy/<%= animal.animalId %>">
+                <form method="POST" action="/animal/destroy/<%= animal.animalId %>">
                     <button type="submit">
                         Delete Animal >
                     </button>
