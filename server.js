@@ -1,6 +1,6 @@
 const express = require( 'express' );
-const mongoose = require( 'mongoose' );
-mongoose.connect('mongodb://localhost/animals_db', {useNewUrlParser: true});
+//const mongoose = require( 'mongoose' );
+//mongoose.connect('mongodb://localhost/animals_db', {useNewUrlParser: true});
 const app = express();
 
 const {AnimalModel} = require( './server/models/AnimalsModel' );
@@ -12,6 +12,7 @@ app.use( express.urlencoded({extended:true}) );
 const { AnimalRouter } = require("./server/routes/animalRoute");
 
 app.use('/animal', AnimalRouter);
+require('./server/config/database');
 
 /*
 app.get( '/', function( request, response ){
